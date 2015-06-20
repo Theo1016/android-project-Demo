@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:minHeight="60dp"
+    android:minWidth="180dp"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/iphone_progress_dialog_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/progress_drawable" 
+        android:contentDescription="@string/empty"/>
+
+    <TextView
+        android:id="@+id/iphone_progress_dialog_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/load_data"
+        android:visibility="gone" />
+
+</LinearLayout><!-- From: file:/Users/Admin/Documents/workspace/ProjectDemo/ProjectSDK/res/layout/view_progress_dialog.xml --><!-- From: file:/Users/Admin/Documents/workspace/ProjectDemo/ProjectSDK/build/intermediates/bundles/debug/res/layout/view_progress_dialog.xml -->

@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">ProjectSDK</string>
+    <string name="avalible_net">===>当前网络可用</string>
+    <string name="avalible_not_net">===>当前网络不可用</string>
+    <string name="wifi_net">===>当前网络------WIFI</string>
+    <string name="threeg_net">===>当前网络------3G</string>
+    <string name="not_wifi_net">===>当前网络------非WIFI</string>
+    <string name="open_net_listener"> ===>开启网络监听服务</string>
+    <string name="change_no_net">===> 网络更改为无网络 </string>
+    <string name="change_wifi_net">===> 网络更改为 WIFI网络 </string>
+    <string name="change_threeg_net"> ===>网络更改为 移动网络 </string>
+    <string name="regist_net_brodcast"> ===>注册监听网络变化的广播接收器</string>
+    <string name="regist_sys_net_brodcast">===>注册系统监听网络变化的广播接收器</string>
+    <string name="broad_sys_net_brodcast">===>监听到网络变化发送广播</string>
+    <string name="service_connected">===>服务已连接</string>
+    <string name="service_dis_connected">===>服务已断开连接</string>
+    <string name="empty">  </string>
+    <string name="load_data">数据加载中....</string>
+    <string name="record_file_un_use">文件无效....</string>
+
+</resources>
