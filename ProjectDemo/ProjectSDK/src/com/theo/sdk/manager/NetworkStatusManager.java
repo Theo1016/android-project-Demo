@@ -69,9 +69,7 @@ public class NetworkStatusManager {
     private boolean mIsFailOver;
     private NetworkInfo mNetworkInfo;
     private boolean mIsWifi = false;
-    /**
-     * In case of a Disconnect, the connectivity manager may have already established, or may be attempting to establish, connectivity with another network. If so, {@code mOtherNetworkInfo} will be non-null.
-     */
+
     private NetworkInfo mOtherNetworkInfo;
     private ConnectivityBroadcastReceiver mReceiver;
 
@@ -150,11 +148,6 @@ public class NetworkStatusManager {
         return NETWORK_CLASS_UNKNOWN;
     }
 
-    /**
-     * This method starts listening for network connectivity state changes.
-     *
-     * @param context
-     */
     public synchronized void startListening(Context context) {
         if (!mListening) {
             mContext = context;
@@ -166,9 +159,6 @@ public class NetworkStatusManager {
         }
     }
 
-    /**
-     * This method stops this class from listening for network changes.
-     */
     public synchronized void stopListening() {
         if (mListening) {
             mContext.unregisterReceiver(mReceiver);
@@ -181,38 +171,18 @@ public class NetworkStatusManager {
         }
     }
 
-    /**
-     * Return the NetworkInfo associated with the most recent connectivity event.
-     *
-     * @return {@code NetworkInfo} for the network that had the most recent connectivity event.
-     */
     public NetworkInfo getNetworkInfo() {
         return mNetworkInfo;
     }
 
-    /**
-     * If the most recent connectivity event was a DISCONNECT, return any information supplied in the broadcast about an alternate network that might be available. If this returns a non-null value, then another broadcast should follow shortly indicating whether connection to the other network succeeded.
-     *
-     * @return NetworkInfo
-     */
     public NetworkInfo getOtherNetworkInfo() {
         return mOtherNetworkInfo;
     }
 
-    /**
-     * Returns true if the most recent event was for an attempt to switch over to a new network following loss of connectivity on another network.
-     *
-     * @return {@code true} if this was a fail over attempt, {@code false} otherwise.
-     */
     public boolean isFailover() {
         return mIsFailOver;
     }
 
-    /**
-     * An optional reason for the connectivity state change may have been supplied. This returns it.
-     *
-     * @return the reason for the state change, if available, or {@code null} otherwise.
-     */
     public String getReason() {
         return mReason;
     }
@@ -240,16 +210,8 @@ public class NetworkStatusManager {
     public enum State {
         UNKNOWN,
 
-        /**
-         * This state is returned if there is connectivity to any network *
-         */
         CONNECTED,
-        /**
-         * This state is returned if there is no connectivity to any network. This is set to true under two circumstances:
-         * <ul>
-         * <li>When connectivity is lost to one network, and there is no other available network to attempt to switch to.</li>
-         * <li>When connectivity is lost to one network, and the attempt to switch to another network fails.</li>
-         */
+
         NOT_CONNECTED
     }
 

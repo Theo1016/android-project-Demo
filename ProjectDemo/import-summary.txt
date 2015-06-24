@@ -1,0 +1,66 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .idea/
+* .idea/.name
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/encodings.xml
+* .idea/libraries/
+* .idea/libraries/Maven__com_google_android_android_4_1_1_4.xml
+* .idea/libraries/Maven__commons_codec_commons_codec_1_3.xml
+* .idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml
+* .idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_1.xml
+* .idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml
+* .idea/libraries/Maven__org_json_json_20080701.xml
+* .idea/libraries/Maven__org_khronos_opengl_api_gl1_1_android_2_1_r1.xml
+* .idea/libraries/Maven__xerces_xmlParserAPIs_2_6_2.xml
+* .idea/libraries/Maven__xpp3_xpp3_1_1_4c.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* LICENSE
+* library.iml
+* pom.xml
+* target/
+* target/generated-sources/
+* target/generated-sources/r/
+* target/generated-sources/r/com/
+* target/generated-sources/r/com/handmark/
+* target/generated-sources/r/com/handmark/pulltorefresh/
+* target/generated-sources/r/com/handmark/pulltorefresh/library/
+* target/generated-sources/r/com/handmark/pulltorefresh/library/BuildConfig.java
+* target/generated-sources/r/com/handmark/pulltorefresh/library/Manifest.java
+* target/generated-sources/r/com/handmark/pulltorefresh/library/R.java
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => PullToRefresh/src/main/AndroidManifest.xml
+* res/ => PullToRefresh/src/main/res/
+* src/ => PullToRefresh/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
