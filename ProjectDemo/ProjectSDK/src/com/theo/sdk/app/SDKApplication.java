@@ -3,6 +3,7 @@ package com.theo.sdk.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.theo.sdk.exception.CatchRuntimeCrash;
 import com.theo.sdk.manager.ImageManager;
 import com.theo.sdk.manager.NetworkStatusManager;
 import com.theo.sdk.thread.CacheSizeThread;
@@ -23,6 +24,8 @@ public class SDKApplication extends Application{
 		getLogSwitch();
 		appContext = getApplicationContext();
 		ImageManager.initImageLoader(appContext);
+		CatchRuntimeCrash crash = CatchRuntimeCrash.getInstance(appContext);
+		crash.init();
 		// 实时监测内存
 		myCacheSizeThread = new CacheSizeThread();
 		myCacheSizeThread.start();

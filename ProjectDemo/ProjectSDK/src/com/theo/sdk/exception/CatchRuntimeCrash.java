@@ -1,15 +1,5 @@
 package com.theo.sdk.exception;
 
-import java.lang.Thread.UncaughtExceptionHandler;
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-
-import com.theo.sdk.constant.Const;
-import com.theo.sdk.manager.ActivityTaskManager;
-import com.theo.sdk.utils.AppUtils;
-import com.theo.sdk.utils.IOUtils;
-import com.theo.sdk.utils.LogUtils;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -19,6 +9,17 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.theo.sdk.constant.Const;
+import com.theo.sdk.manager.ActivityTaskManager;
+import com.theo.sdk.utils.AppUtils;
+import com.theo.sdk.utils.IOUtils;
+import com.theo.sdk.utils.LogUtils;
+
+import java.lang.Thread.UncaughtExceptionHandler;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 崩溃异常捕获
  * @author Theo
@@ -26,7 +27,7 @@ import android.widget.Toast;
  */
 public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 
-	private Context mContext;
+	private static Context mContext;
 
 	private UncaughtExceptionHandler crashHandler;
 
@@ -36,15 +37,14 @@ public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 	private Map<String, String> infos = new HashMap<String, String>();
 
 	public static CatchRuntimeCrash getInstance(Context context) {
-
 		if (null == instance) {
 			instance = new CatchRuntimeCrash();
+			mContext = context;
 		}
 		return instance;
 	}
 
-	public void init(Context ctx) {
-		mContext = ctx;
+	public void init() {
 		crashHandler = Thread.getDefaultUncaughtExceptionHandler();
 		Thread.setDefaultUncaughtExceptionHandler(this);
 	}

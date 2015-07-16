@@ -42,6 +42,8 @@ public abstract class SDKBaseActivity extends SDKBaseFragmentActivity implements
 		ActivityTaskManager.addActivity2Task(this);
 		mContext.registerComponentCallbacks(new MemeryCallBack());
 		initDisplayConst();
+		//常量初始化完毕
+		Const.isInit=true;
 	}
 
 	/**
@@ -49,11 +51,13 @@ public abstract class SDKBaseActivity extends SDKBaseFragmentActivity implements
 	 * 初始化屏幕显示基本常量
 	 */
 	private void initDisplayConst() {
-		Const.SCREEN_WIDTH_PIXELS = AppUtils.getDisplayWidth(this);
-		Const.SCREEN_HEIGHT_PIXELS = AppUtils.getDisplayHeight(this);
-		Const.SCREEN_DENSITY = mContext.getResources().getDisplayMetrics().density;
-		Const.SCREEN_WIDTH_DP = AppUtils.px2dip(mContext,Const.SCREEN_WIDTH_PIXELS);
-		Const.SCREEN_HEIGHT_DP = AppUtils.px2dip(mContext,Const.SCREEN_HEIGHT_PIXELS);
+		if(Const.isInit==false) {
+			Const.SCREEN_WIDTH_PIXELS = AppUtils.getDisplayWidth(this);
+			Const.SCREEN_HEIGHT_PIXELS = AppUtils.getDisplayHeight(this);
+			Const.SCREEN_DENSITY = mContext.getResources().getDisplayMetrics().density;
+			Const.SCREEN_WIDTH_DP = AppUtils.px2dip(mContext, Const.SCREEN_WIDTH_PIXELS);
+			Const.SCREEN_HEIGHT_DP = AppUtils.px2dip(mContext, Const.SCREEN_HEIGHT_PIXELS);
+		}
 	}
 
 

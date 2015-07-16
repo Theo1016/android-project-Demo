@@ -7,6 +7,8 @@ package com.theo.sdk.constant;
  * 
  */
 public class Const {
+	/** 是否初始化完毕*/
+	public static boolean isInit=false;
 	/** 图片缓存 */
 	public static final int memeryCacheSize = 20 * 1024 * 1024;
 	public static final int disCacheSize = 100 * 1024 * 1024;

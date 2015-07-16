@@ -1,5 +1,19 @@
 package com.theo.sdk.request;
 
+import android.content.Context;
+import android.os.Process;
+import android.util.Log;
+
+import com.theo.sdk.constant.Const;
+
+import org.apache.http.Header;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpRequestRetryHandler;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.protocol.HttpContext;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
@@ -7,18 +21,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.apache.http.Header;
-import org.apache.http.HttpMessage;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpRequestRetryHandler;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.AbstractHttpClient;
-import org.apache.http.protocol.HttpContext;
-import com.theo.sdk.constant.Const;
-import android.content.Context;
-import android.os.Process;
-import android.util.Log;
 
 /**
  * 
@@ -87,10 +89,6 @@ public class HttpRequestTask implements Runnable {
 	 */
 	private String mUrl;
 
-	/**
-	 * 参数
-	 */
-	private List<NameValuePair> mParams;
 
 	/**
 	 * 网络请求结果反馈
@@ -101,7 +99,7 @@ public class HttpRequestTask implements Runnable {
 	 * 
 	 */
 	private ResponseHandlerInterface responseHandler;
-	
+
 	/** context */
 	private Context mContext;
 
@@ -115,14 +113,14 @@ public class HttpRequestTask implements Runnable {
 	 *            Context
 	 * @param url
 	 *            请求地址
-	 * @param params
+	 * @param uriRequest
 	 *            请求参数
 	 * @param listener
 	 *            回调Listener
 	 */
 	public HttpRequestTask(Context context, String url,
-			List<NameValuePair> params, ResponseHandlerInterface listener) {
-		this(context, url, params, Process.THREAD_PRIORITY_DEFAULT, listener);
+			HttpUriRequest uriRequest, ResponseHandlerInterface listener) {
+		this(context, url, uriRequest, Process.THREAD_PRIORITY_DEFAULT, listener);
 	}
 	
 	/**
@@ -132,7 +130,7 @@ public class HttpRequestTask implements Runnable {
 	 *            Context
 	 * @param url
 	 *            请求地址
-	 * @param params
+	 * @param uriRequest
 	 *            请求参数
 	 * @param priority
 	 *            线程优先级
@@ -140,12 +138,12 @@ public class HttpRequestTask implements Runnable {
 	 *            回调responseHandlerInterface
 	 */
 	public HttpRequestTask(Context context, String url,
-			List<NameValuePair> params, int priority,
+			HttpUriRequest uriRequest, int priority,
 			ResponseHandlerInterface responseHandlerInterface) {
 		mContext = context.getApplicationContext();
 		mPriority = priority;
 		mUrl = url;
-		mParams = params;
+		request = uriRequest;
 		responseHandler = responseHandlerInterface;
 	}
 
@@ -171,10 +169,10 @@ public class HttpRequestTask implements Runnable {
 			}
 			return;
 		}
-		// 过滤Url
-		if (mURLFilter != null) {
-			mUrl = mURLFilter.filter(mUrl, mParams);
-		}
+//		// 过滤Url
+//		if (mURLFilter != null) {
+//			mUrl = mURLFilter.filter(mUrl, mParams);
+//		}
 		try {
 			makeRequestWithRetries();
 		} catch (IOException e) {
@@ -305,7 +303,7 @@ public class HttpRequestTask implements Runnable {
 	}
 
 	/**
-	 * @param 撤销任务执行
+	 * 撤销任务执行
 	 */
 	public void cancel() {
 		mIsCancel.set(true);

@@ -11,10 +11,7 @@ import com.theo.sdk.constant.Const;
 import com.theo.sdk.request.CacheRequestTask.OnCacheRequestListener;
 import com.theo.sdk.request.HttpRequestHandler.OnHttpRequestHandlerListener;
 
-import org.apache.http.NameValuePair;
 import org.json.JSONException;
-
-import java.util.List;
 
 /**
  * 
@@ -23,7 +20,7 @@ import java.util.List;
  * 
  * @author Theo
  */
-public abstract class AbstractRequestor {
+public abstract class AbstractRequestor{
 
 	/** context */
 	protected Context mContext;
@@ -77,20 +74,6 @@ public abstract class AbstractRequestor {
 	private boolean mIsCanceled;
 
 	/**
-	 * 请求参数
-	 * 
-	 * @return Parameters
-	 */
-	protected abstract List<NameValuePair> getRequestParams();
-
-	/**
-	 * 请求地址
-	 * 
-	 * @return Url
-	 */
-	protected abstract String getRequestUrl();
-
-	/**
 	 * 构造函数
 	 * 
 	 * @param context
@@ -105,7 +88,7 @@ public abstract class AbstractRequestor {
 	 * 
 	 * @param parseData
 	 */
-	public void setParseData(ParseDataInterface parseData) {
+	public void setParseDataMethod(ParseDataInterface parseData) {
 		this.parseDateInterface = parseData;
 	}
 	
@@ -226,10 +209,10 @@ public abstract class AbstractRequestor {
 		// 条件符合,则使用缓存
 		useCacheIfCould();
 		//初始化网络请求回调
-		init(mOnRequestListener);
+		init(listener);
 		// 网络请求
 		requestInterface.request(mOnHttpRequestHandlerListener);
-		
+
 	}
 
 	/**
