@@ -87,5 +87,6 @@
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="ProjectSDK" exported="" />
+    <orderEntry type="module" module-name="library_pulltorefresh" exported="" />
   </component>
 </module>
