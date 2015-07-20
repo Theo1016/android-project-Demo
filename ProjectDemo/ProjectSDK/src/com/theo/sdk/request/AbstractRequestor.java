@@ -125,6 +125,7 @@ public abstract class AbstractRequestor{
 	 * @return 主线程的handler
 	 */
 	public synchronized Handler getHandler() {
+
 		if (mHandler == null) {
 			mHandler = new Handler(Looper.getMainLooper());
 		}

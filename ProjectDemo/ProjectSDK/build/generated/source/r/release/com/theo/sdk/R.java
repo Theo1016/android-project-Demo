@@ -55,18 +55,21 @@ containing a value of this type.
         public static int progress_loading=0x7f020003;
     }
     public static final class id {
-        public static int dialog_view=0x7f090005;
-        public static int iphone_progress_dialog_img=0x7f090006;
-        public static int iphone_progress_dialog_txt=0x7f090007;
-        public static int iv_title_bar_left=0x7f090001;
-        public static int ly_title_bar_center=0x7f090002;
-        public static int ly_title_bar_left=0x7f090000;
-        public static int ly_title_bar_right=0x7f090004;
-        public static int tv_title_bar_title=0x7f090003;
+        public static int dialog_view=0x7f090007;
+        public static int iphone_progress_dialog_img=0x7f090008;
+        public static int iphone_progress_dialog_txt=0x7f090009;
+        public static int iv_title_bar_left=0x7f090003;
+        public static int ly_title_bar_center=0x7f090004;
+        public static int ly_title_bar_left=0x7f090002;
+        public static int ly_title_bar_right=0x7f090006;
+        public static int sdk_content_frame_content=0x7f090001;
+        public static int sdk_content_frame_title_header=0x7f090000;
+        public static int tv_title_bar_title=0x7f090005;
     }
     public static final class layout {
-        public static int sdk_base_header_bar_title=0x7f030000;
-        public static int view_progress_dialog=0x7f030001;
+        public static int sdk_base_content_frame_with_title_header=0x7f030000;
+        public static int sdk_base_header_bar_title=0x7f030001;
+        public static int view_progress_dialog=0x7f030002;
     }
     public static final class string {
         public static int app_name=0x7f080000;

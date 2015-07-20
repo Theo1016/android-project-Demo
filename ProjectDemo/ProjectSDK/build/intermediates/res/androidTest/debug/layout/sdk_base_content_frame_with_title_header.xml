@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.theo.sdk.ui.activity.view.TitleHeaderBar
+        android:id="@+id/sdk_content_frame_title_header"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <LinearLayout
+        android:id="@+id/sdk_content_frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical" />
+
+</LinearLayout><!-- From: file:/Users/Admin/Documents/workspace/ProjectDemo/ProjectSDK/res/layout/sdk_base_content_frame_with_title_header.xml --><!-- From: file:/Users/Admin/Documents/workspace/ProjectDemo/ProjectSDK/build/intermediates/bundles/debug/res/layout/sdk_base_content_frame_with_title_header.xml -->
