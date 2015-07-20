@@ -38,6 +38,7 @@ public class OneFragment extends TitleBaseFragment{
                 String label = DateUtils.formatDateTime(getContext(), System.currentTimeMillis(),
                         DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
                 refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
+                
                 //请求数据
                 requestor = new OneFragmentRequestor(getContext());
                 requestor.doRequest(requestListener);
